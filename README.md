@@ -10,11 +10,11 @@ Aquesta és la web corporativa de FoodLogistic, una empresa fictícia dedicada a
 
 Per la creació d'aquesta web, s'han utilitzat les següents tecnologies i eines:
 
-Claude (IA).
+- Claude (IA).
 
-HTML5/CSS3
+- HTML5/CSS3
 
-Statcounter per l'analítica
+- Statcounter per l'analítica
 
 ## Autor
 
