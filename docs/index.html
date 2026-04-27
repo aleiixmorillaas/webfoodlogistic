@@ -33,7 +33,6 @@
       --transition: 0.35s cubic-bezier(0.4, 0, 0.2, 1);
     }
  
-    /* ===== RESET & BASE ===== */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; font-size: 16px; }
     body {
@@ -48,8 +47,7 @@
     img { display: block; width: 100%; }
     ul { list-style: none; }
     button { cursor: pointer; border: none; background: none; font-family: inherit; }
- 
-    /* ===== NOISE OVERLAY ===== */
+
     body::before {
       content: '';
       position: fixed;
@@ -59,12 +57,72 @@
       pointer-events: none;
       z-index: 9999;
     }
- 
-    /* ===== SCROLLBAR ===== */
+
     ::-webkit-scrollbar { width: 6px; }
     ::-webkit-scrollbar-track { background: var(--bg-primary); }
     ::-webkit-scrollbar-thumb { background: var(--text-muted); border-radius: 3px; }
- 
+
+    /* ===== COOKIE BANNER ===== */
+    #cookieBanner {
+      position: fixed;
+      bottom: 0; left: 0; right: 0;
+      z-index: 10000;
+      background: rgba(13, 17, 23, 0.97);
+      backdrop-filter: blur(20px);
+      border-top: 1px solid var(--border-accent);
+      padding: 1.5rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+    #cookieBanner.hidden { display: none; }
+    .cookie-text {
+      font-size: 0.88rem;
+      color: var(--text-secondary);
+      flex: 1;
+      min-width: 280px;
+    }
+    .cookie-text strong { color: var(--text-primary); font-weight: 500; }
+    .cookie-text a { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
+    .cookie-actions {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    .btn-cookie-accept {
+      padding: 0.6rem 1.5rem;
+      background: var(--accent);
+      color: #050a07;
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 0.85rem;
+      border-radius: var(--radius-sm);
+      transition: box-shadow var(--transition);
+    }
+    .btn-cookie-accept:hover { box-shadow: 0 0 20px var(--accent-glow); }
+    .btn-cookie-reject {
+      padding: 0.6rem 1.25rem;
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      border-radius: var(--radius-sm);
+      transition: all var(--transition);
+    }
+    .btn-cookie-reject:hover { border-color: var(--text-muted); color: var(--text-secondary); }
+    .btn-cookie-config {
+      padding: 0.6rem 1.25rem;
+      border: 1px solid var(--border-accent);
+      color: var(--accent);
+      font-size: 0.85rem;
+      border-radius: var(--radius-sm);
+      background: var(--accent-dim);
+      transition: all var(--transition);
+    }
+    .btn-cookie-config:hover { background: rgba(74,240,196,0.2); }
+
     /* ===== NAVIGATION ===== */
     nav {
       position: fixed;
@@ -133,7 +191,7 @@
       border-radius: 2px;
       transition: var(--transition);
     }
- 
+
     /* ===== HERO ===== */
     #hero {
       min-height: 100vh;
@@ -284,7 +342,7 @@
       50% { transform: scaleY(1); transform-origin: top; opacity: 1; }
       100% { transform: scaleY(1); transform-origin: bottom; opacity: 0; }
     }
- 
+
     /* ===== LOGOS STRIP ===== */
     .logos-strip {
       padding: 2.5rem 2rem;
@@ -323,7 +381,7 @@
       0% { transform: translateX(0); }
       100% { transform: translateX(-50%); }
     }
- 
+
     /* ===== SECTIONS SHARED ===== */
     section { padding: 7rem 2rem; }
     .container { max-width: 1200px; margin: 0 auto; }
@@ -358,7 +416,7 @@
       max-width: 520px;
       line-height: 1.75;
     }
- 
+
     /* ===== ABOUT ===== */
     #sobre {
       background: var(--bg-secondary);
@@ -445,7 +503,7 @@
     }
     .stat-card .num span { color: var(--accent); }
     .stat-card p { font-size: 0.85rem; color: var(--text-muted); margin-top: 0.25rem; }
- 
+
     /* ===== SERVICES ===== */
     #serveis { background: var(--bg-primary); }
     .services-header {
@@ -508,7 +566,7 @@
       transition: color var(--transition), transform var(--transition);
     }
     .service-card:hover .service-arrow { color: var(--accent); transform: translate(3px, -3px); }
- 
+
     /* ===== GALLERY ===== */
     #galeria {
       background: var(--bg-secondary);
@@ -557,7 +615,7 @@
       letter-spacing: 0.05em;
       text-transform: uppercase;
     }
- 
+
     /* ===== TESTIMONIALS ===== */
     #testimonis { background: var(--bg-primary); }
     .testimonials-header {
@@ -625,7 +683,7 @@
       font-weight: 700;
     }
     .author-role { font-size: 0.78rem; color: var(--text-muted); }
- 
+
     /* ===== BLOG ===== */
     #blog { background: var(--bg-secondary); }
     .blog-header {
@@ -682,7 +740,7 @@
     .blog-card-title a { transition: color var(--transition); }
     .blog-card-title a:hover { color: var(--accent); }
     .blog-card-meta { font-size: 0.8rem; color: var(--text-muted); }
- 
+
     /* ===== FAQ ===== */
     #faq { background: var(--bg-primary); }
     .faq-grid {
@@ -692,9 +750,7 @@
       align-items: start;
     }
     .faq-list { margin-top: 0; }
-    .faq-item {
-      border-bottom: 1px solid var(--border);
-    }
+    .faq-item { border-bottom: 1px solid var(--border); }
     .faq-question {
       display: flex;
       justify-content: space-between;
@@ -740,7 +796,7 @@
       padding-bottom: 1.25rem;
       line-height: 1.7;
     }
- 
+
     /* ===== CONTACT ===== */
     #contacte { background: var(--bg-secondary); }
     .contact-grid {
@@ -800,8 +856,46 @@
       box-shadow: 0 0 0 3px var(--accent-dim);
     }
     .form-group textarea { resize: vertical; min-height: 130px; }
+
+    /* ===== CHECKBOX CONSENT ===== */
+    .form-check {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      padding: 1rem;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      transition: border-color var(--transition);
+    }
+    .form-check:hover { border-color: rgba(74,240,196,0.2); }
+    .form-check.error { border-color: rgba(240,74,74,0.5); background: rgba(240,74,74,0.04); }
+    .form-check input[type="checkbox"] {
+      width: 18px;
+      height: 18px;
+      min-width: 18px;
+      accent-color: var(--accent);
+      cursor: pointer;
+      margin-top: 2px;
+    }
+    .form-check label {
+      font-size: 0.82rem;
+      color: var(--text-secondary);
+      cursor: pointer;
+      line-height: 1.5;
+    }
+    .form-check label a {
+      color: var(--accent);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+    .form-check label a:hover { opacity: 0.8; }
+    .form-check.required-field label::after {
+      content: ' *';
+      color: var(--accent);
+    }
     .form-submit { margin-top: 0.5rem; }
- 
+
     /* ===== FOOTER ===== */
     footer {
       background: var(--bg-primary);
@@ -863,7 +957,7 @@
     }
     .footer-bottom a { color: var(--text-muted); transition: color var(--transition); }
     .footer-bottom a:hover { color: var(--accent); }
- 
+
     /* ===== ANIMATIONS ===== */
     @keyframes fadeInUp {
       from { opacity: 0; transform: translateY(24px); }
@@ -886,7 +980,7 @@
     .reveal-delay-1 { transition-delay: 0.1s; }
     .reveal-delay-2 { transition-delay: 0.2s; }
     .reveal-delay-3 { transition-delay: 0.3s; }
- 
+
     /* ===== MOBILE NAV ===== */
     .mobile-menu {
       display: none;
@@ -915,7 +1009,7 @@
       color: var(--text-muted);
       cursor: pointer;
     }
- 
+
     /* ===== RESPONSIVE ===== */
     @media (max-width: 1024px) {
       .services-grid { grid-template-columns: repeat(2, 1fr); }
@@ -948,6 +1042,7 @@
       .gallery-item-3, .gallery-item-6 { display: block; }
       .form-row { grid-template-columns: 1fr; }
       .blog-header { flex-direction: column; align-items: flex-start; gap: 1rem; }
+      #cookieBanner { flex-direction: column; align-items: flex-start; }
     }
     @media (max-width: 480px) {
       .footer-grid { grid-template-columns: 1fr; }
@@ -956,7 +1051,19 @@
 </head>
 
 <body>
- 
+
+  <!-- ===== COOKIE BANNER ===== -->
+  <div id="cookieBanner">
+    <div class="cookie-text">
+      <strong>🍪 Utilitzem cookies</strong> — Aquesta web utilitza cookies pròpies i de tercers per analitzar el trànsit, personalitzar continguts i millorar la teva experiència. Pots acceptar-les totes, rebutjar-les o configurar-les. Consulta la nostra <a href="politica-cookies.html">Política de Cookies</a> i la <a href="politica-privacitat.html">Política de Privacitat</a>.
+    </div>
+    <div class="cookie-actions">
+      <button class="btn-cookie-config" onclick="window.location.href='politica-cookies.html'">Configurar</button>
+      <button class="btn-cookie-reject" onclick="rejectCookies()">Rebutjar</button>
+      <button class="btn-cookie-accept" onclick="acceptCookies()">Acceptar totes</button>
+    </div>
+  </div>
+
   <!-- ===== MOBILE MENU ===== -->
   <div class="mobile-menu" id="mobileMenu">
     <span class="mobile-close" id="mobileClose">✕</span>
@@ -990,24 +1097,19 @@
     <div class="hero-grid-bg"></div>
     <div class="hero-orb hero-orb-1"></div>
     <div class="hero-orb hero-orb-2"></div>
- 
     <div class="hero-badge">Distribució intel·ligent — Versió 2.0</div>
- 
     <h1 class="hero-title">
       La cadena de fred<br>
       <span class="accent">més fiable</span><br>
       d'<span class="accent2">Europa</span>
     </h1>
- 
     <p class="hero-subtitle">
       FoodLogistic garanteix la distribució d'aliments frescos, refrigerats i congelats amb traçabilitat total, velocitat i les màximes garanties sanitàries de principi a fi.
     </p>
- 
     <div class="hero-actions">
       <a href="#serveis" class="btn-primary">Descobreix els serveis →</a>
       <a href="#sobre" class="btn-secondary">▶ Com funcionem</a>
     </div>
- 
     <div class="hero-scroll">
       <div class="scroll-line"></div>
       Scroll
@@ -1026,7 +1128,6 @@
       <span class="logo-item">El Pozo</span>
       <span class="logo-item">Danone</span>
       <span class="logo-item">Nestlé Iberia</span>
-      <!-- duplicats per al loop -->
       <span class="logo-item">Bon Preu</span>
       <span class="logo-item">Mercadona</span>
       <span class="logo-item">Lidl Iberia</span>
@@ -1354,7 +1455,7 @@
                 <div class="contact-item-icon">📍</div>
                 <div class="contact-item-text">
                   <p>Adreça</p>
-                  <p>Polígono Industrial Barri Banyeres, Premià de Mar (Barcelona)</p>
+                  <p>Polígon Industrial Les Guixeres, Carrer de la Indústria 14, 08500 Vic (Barcelona)</p>
                 </div>
               </div>
               <div class="contact-item">
@@ -1368,19 +1469,27 @@
           </div>
           <div class="reveal reveal-delay-1">
             <div class="contact-form" id="contactForm">
+              <!-- Fila 1: Nom + Email -->
               <div class="form-row">
                 <div class="form-group">
-                  <label for="nom">Nom</label>
+                  <label for="nom">Nom *</label>
                   <input type="text" id="nom" placeholder="El teu nom" />
                 </div>
                 <div class="form-group">
-                  <label for="email">Email</label>
+                  <label for="email">Email *</label>
                   <input type="email" id="email" placeholder="correu@empresa.com" />
                 </div>
               </div>
-              <div class="form-group">
-                <label for="empresa">Empresa</label>
-                <input type="text" id="empresa" placeholder="Nom de la teva empresa" />
+              <!-- Fila 2: Telèfon + Empresa -->
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="telefon">Telèfon *</label>
+                  <input type="tel" id="telefon" placeholder="+34 600 000 000" />
+                </div>
+                <div class="form-group">
+                  <label for="empresa">Empresa</label>
+                  <input type="text" id="empresa" placeholder="Nom de la teva empresa" />
+                </div>
               </div>
               <div class="form-group">
                 <label for="servei">Servei d'interès</label>
@@ -1395,15 +1504,35 @@
                 </select>
               </div>
               <div class="form-group">
-                <label for="missatge">Missatge</label>
+                <label for="missatge">Missatge *</label>
                 <textarea id="missatge" placeholder="Explica'ns el teu producte i les teves necessitats de distribució..."></textarea>
               </div>
+
+              <!-- CHECKBOX 1: Consentiment de dades (obligatori) -->
+              <div class="form-check required-field" id="checkPrivacitatWrap">
+                <input type="checkbox" id="checkPrivacitat" />
+                <label for="checkPrivacitat">
+                  He llegit i accepto la <a href="politica-privacitat.html" target="_blank">Política de Privacitat</a> i autoritzo el tractament de les meves dades personals per gestionar la meva sol·licitud de contacte, d'acord amb el RGPD i la LOPDGDD.
+                </label>
+              </div>
+
+              <!-- CHECKBOX 2: Comunicacions comercials (opcional) -->
+              <div class="form-check" id="checkComercialWrap">
+                <input type="checkbox" id="checkComercial" />
+                <label for="checkComercial">
+                  Accepto rebre comunicacions comercials, ofertes i novetats de FoodLogistic S.L. per correu electrònic o altres mitjans electrònics, d'acord amb l'<a href="avislegal.html" target="_blank">Avís Legal</a>. (Opcional)
+                </label>
+              </div>
+
               <div class="form-submit">
                 <button class="btn-primary" id="submitBtn" style="width:100%; justify-content:center;" onclick="handleSubmit()">
                   Sol·licitar pressupost →
                 </button>
               </div>
-              <div id="formSuccess" style="display:none; text-align:center; padding:2rem; background:var(--accent-dim); border:1px solid var(--border-accent); border-radius:var(--radius-md);">
+              <p style="font-size:0.75rem; color:var(--text-muted); margin-top:0.5rem;">
+                (* Camps obligatoris) · Les teves dades no seran cedides a tercers sense el teu consentiment exprés. Pots exercir els teus drets ARSLOP a <a href="mailto:privacitat@foodlogistic.cat" style="color:var(--accent)">privacitat@foodlogistic.cat</a>
+              </p>
+              <div id="formSuccess" style="display:none; text-align:center; padding:2rem; background:var(--accent-dim); border:1px solid var(--border-accent); border-radius:var(--radius-md); margin-top:1rem;">
                 <div style="font-size:2rem; margin-bottom:0.5rem;">✓</div>
                 <p style="color:var(--accent); font-family:var(--font-display); font-weight:700;">Sol·licitud enviada!</p>
                 <p style="font-size:0.875rem; color:var(--text-secondary); margin-top:0.25rem;">El nostre equip comercial et contactarà en menys de 24h.</p>
@@ -1450,20 +1579,37 @@
       <div class="footer-col">
         <h5>Legal</h5>
         <ul>
-          <li><a href="#">Política de Privadesa</a></li>
-          <li><a href="#">Termes d'Ús</a></li>
-          <li><a href="#">Cookies</a></li>
-          <li><a href="#">RGPD</a></li>
+          <li><a href="avislegal.html">Avís Legal</a></li>
+          <li><a href="politica-privacitat.html">Política de Privacitat</a></li>
+          <li><a href="politica-cookies.html">Política de Cookies</a></li>
+          <li><a href="avislegal.html#rgpd">RGPD</a></li>
         </ul>
       </div>
     </div>
     <div class="footer-bottom">
-      <p>© 2025 FoodLogistic S.L. Tots els drets reservats.</p>
-      <p>Fet amb ❤️ a <a href="#">Premià de Mar, Catalunya</a></p>
+      <p>© 2025 FoodLogistic S.L. · CIF: B-08512345 · Tots els drets reservats.</p>
+      <p>Fet amb ❤️ a <a href="#">Vic, Catalunya</a></p>
     </div>
   </footer>
  
   <script>
+    // ===== COOKIE BANNER =====
+    function checkCookieConsent() {
+      const consent = localStorage.getItem('fl_cookie_consent');
+      if (consent) {
+        document.getElementById('cookieBanner').classList.add('hidden');
+      }
+    }
+    function acceptCookies() {
+      localStorage.setItem('fl_cookie_consent', 'accepted');
+      document.getElementById('cookieBanner').classList.add('hidden');
+    }
+    function rejectCookies() {
+      localStorage.setItem('fl_cookie_consent', 'rejected');
+      document.getElementById('cookieBanner').classList.add('hidden');
+    }
+    checkCookieConsent();
+
     // ===== NAVBAR SCROLL =====
     const navbar = document.getElementById('navbar');
     window.addEventListener('scroll', () => {
@@ -1474,13 +1620,11 @@
     const hamburger = document.getElementById('hamburger');
     const mobileMenu = document.getElementById('mobileMenu');
     const mobileClose = document.getElementById('mobileClose');
- 
     hamburger.addEventListener('click', () => {
       mobileMenu.classList.add('open');
       document.body.style.overflow = 'hidden';
     });
     mobileClose.addEventListener('click', closeMobile);
- 
     function closeMobile() {
       mobileMenu.classList.remove('open');
       document.body.style.overflow = '';
@@ -1496,7 +1640,6 @@
         }
       });
     }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
- 
     revealElements.forEach(el => observer.observe(el));
  
     // ===== FAQ ACCORDION =====
@@ -1507,30 +1650,43 @@
       if (!isOpen) item.classList.add('open');
     }
  
-    // ===== CONTACT FORM =====
+    // ===== CONTACT FORM (amb validació checkboxes) =====
     function handleSubmit() {
       const nom = document.getElementById('nom').value.trim();
       const email = document.getElementById('email').value.trim();
+      const telefon = document.getElementById('telefon').value.trim();
       const missatge = document.getElementById('missatge').value.trim();
- 
-      if (!nom || !email || !missatge) {
-        [{ id: 'nom', val: nom }, { id: 'email', val: email }, { id: 'missatge', val: missatge }].forEach(({ id, val }) => {
-          const el = document.getElementById(id);
-          if (!val) {
-            el.style.borderColor = 'rgba(240,74,74,0.6)';
-            el.addEventListener('input', () => el.style.borderColor = '', { once: true });
-          }
-        });
-        return;
+      const checkPrivacitat = document.getElementById('checkPrivacitat').checked;
+
+      let valid = true;
+
+      // Validació camps de text
+      [{ id: 'nom', val: nom }, { id: 'email', val: email }, { id: 'telefon', val: telefon }, { id: 'missatge', val: missatge }].forEach(({ id, val }) => {
+        const el = document.getElementById(id);
+        if (!val) {
+          el.style.borderColor = 'rgba(240,74,74,0.6)';
+          el.addEventListener('input', () => el.style.borderColor = '', { once: true });
+          valid = false;
+        }
+      });
+
+      // Validació checkbox privacitat (obligatori)
+      const privWrap = document.getElementById('checkPrivacitatWrap');
+      if (!checkPrivacitat) {
+        privWrap.classList.add('error');
+        document.getElementById('checkPrivacitat').addEventListener('change', () => privWrap.classList.remove('error'), { once: true });
+        valid = false;
       }
- 
+
+      if (!valid) return;
+
       const btn = document.getElementById('submitBtn');
       btn.textContent = 'Enviant...';
       btn.style.opacity = '0.7';
       btn.disabled = true;
- 
+
       setTimeout(() => {
-        document.getElementById('contactForm').style.display = 'none';
+        document.getElementById('contactForm').querySelectorAll('input, textarea, select, button, .form-check').forEach(el => el.style.display = 'none');
         document.getElementById('formSuccess').style.display = 'block';
       }, 1200);
     }
@@ -1549,11 +1705,4 @@
     });
   </script>
 </body>
-<div class="footer-bottom">
-  <p>&copy; 2026 FoodLogistic. Tots els drets reservats.</p>
-  <div>
-    <a href="politicaprivacitat.html" style="margin-right: 15px;">Política de Privacitat</a>
-    <a href="politicacookies.html">Política de Cookies</a>
-  </div>
-</div>
 </html>
