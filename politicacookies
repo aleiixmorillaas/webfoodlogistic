@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Política de Cookies — FoodLogistic</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
+  
+  <style>
+    /* Reutilitzem les teves variables globals */
+    :root {
+      --bg-primary: #080a0f;
+      --text-primary: #eef2ff;
+      --text-secondary: #8892aa;
+      --accent: #4af0c4;
+      --font-display: 'Syne', sans-serif;
+      --font-body: 'DM Sans', sans-serif;
+    }
+
+    body {
+      background: var(--bg-primary);
+      color: var(--text-secondary);
+      font-family: var(--font-body);
+      line-height: 1.7;
+      padding: 4rem 2rem;
+    }
+
+    .container { max-width: 800px; margin: 0 auto; }
+
+    h1, h2 {
+      font-family: var(--font-display);
+      color: var(--text-primary);
+      margin-bottom: 1.5rem;
+    }
+
+    h1 { font-size: 2.5rem; margin-bottom: 3rem; }
+    h2 { font-size: 1.5rem; margin-top: 2.5rem; color: var(--accent); }
+
+    p { margin-bottom: 1.25rem; }
+
+    ul { margin-bottom: 1.5rem; padding-left: 1.5rem; }
+    li { margin-bottom: 0.5rem; }
+
+    .back-link {
+      display: inline-block;
+      margin-top: 3rem;
+      color: var(--accent);
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h1>Política de Cookies</h1>
+  
+  <p>A FoodLogistic, utilitzem cookies per millorar la vostra experiència al nostre lloc web. Aquesta política explica què són, quines utilitzem i com podeu gestionar-les.</p>
+
+  <h2>Què són les cookies?</h2>
+  <p>Les cookies són petits fitxers de dades que es descarreguen al vostre dispositiu quan visiteu determinades pàgines web. Permeten que el lloc web reconegui el vostre dispositiu i emmagatzemi informació sobre les vostres preferències o accions passades.</p>
+
+  <h2>Cookies que utilitzem</h2>
+  <ul>
+    <li><strong>Cookies tècniques:</strong> Són necessàries per al funcionament bàsic del lloc web.</li>
+    <li><strong>Cookies d'anàlisi:</strong> Ens ajuden a entendre com interactuen els usuaris amb el nostre web mitjançant dades anònimes (ex. Google Analytics).</li>
+    <li><strong>Cookies de personalització:</strong> Permeten recordar les vostres preferències de navegació.</li>
+  </ul>
+
+  <h2>Com gestionar les cookies</h2>
+  <p>Podeu configurar el vostre navegador per bloquejar o eliminar les cookies en qualsevol moment. Tingueu en compte que, si les desactiveu, algunes funcions del nostre lloc web podrien no funcionar correctament.</p>
+
+  <p>Per a més informació sobre com gestionar les cookies, podeu consultar la secció d'ajuda del vostre navegador (Chrome, Firefox, Safari o Edge).</p>
+
+  <a href="index.html" class="back-link">← Tornar a la pàgina principal</a>
+</div>
+
+</body>
+</html>
